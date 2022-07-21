@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+:root {
+    --main-color: rgb(243, 231, 231);
+    --secondary-color: #323232;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#wrapper {
+    display: flex;
+}
+
+html,
+button,
+span,
+input,
+textarea {
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+}
+
+body,
+span {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+h1,
+span {
+    font-weight: 700;
+}
+
+p {
+    font-weight: 400;
+}
+
+#blog-wrapper {
+    margin: 0 10vw;
+    margin-top: 10vh;
+    width: 60%;
+
+}
+
+.blog-item {
+    margin-bottom: 3vh;
+    padding-bottom: 2vh;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.blog-item p {
+    margin: 1.5vh 0;
+}
+
+.blog-item h1 {
+    margin-top: 5px;
+}
+
+#profile-body {
+    width: 30%;
+    padding-right: 5vw;
+    height: 100%;
+    position: sticky;
+    top: 5%;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    /* border-left: 1px solid grey; */
+}
+
+.pic {
+    width: 5%;
+    border-radius: 50%;
+    border: 1px solid var(--secondary-color);
+}
+
+.name {
+    margin-left: 10px;
+    display: inline-block;
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+#profile-body img {
+    width: 40%;
+    border-radius: 50%;
+}
+
+#profile-body h2 {
+    display: block;
+    transform: none;
+    font-size: 1.7rem;
+    margin: 0;
+}
+
+.controls-wrapper {
+    display: flex;
+}
+
+.controls-wrapper button {
+    margin-left: auto;
+}
+
+.new-blog {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 15px;
+    border: 1px solid var(--secondary-color);
+}
+
+.new-blog * {
+    border: 1px solid var(--secondary-color);
+    padding: 8px;
+    width: 100%;
+    margin-bottom: 5px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+
+.new-blog textarea {
+    height: 15vh;
+    resize: none;
+}
+
+.new-blog button {
+    cursor: pointer;
+}
+
+.edit,
+.like {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#footer {
+    height: 20vh;
+    margin: 70px 30px 0 30px;
+    text-align: center;
+}
+
+#footer h1 {
+    font-size: 1.2rem;
+}
+
+#footer span {
+    font-size: 1rem;
+}
+
+#dark-light-mode {
+    border: none;
+    cursor: pointer;
+    display: inline;
+    width: 15px;
+    margin: 4px 0;
+}
+
+
+@media screen and (max-width: 700px) {
+    #wrapper {
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+    }
+
+    #blog-wrapper {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+
+    #profile-body {
+        width: 100%;
+        height: 100%;
+        margin: 10px auto;
+        padding: 0;
+    }
+
+    #footer {
+        margin: auto;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --main-color: #191919;
+        --secondary-color: #ECDBBA;
+    }
+}
