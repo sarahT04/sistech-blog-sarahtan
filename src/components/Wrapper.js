@@ -4,8 +4,8 @@ import { BEARER, BLOG_URL, LIKE_BLOG_URL, POST_BLOG_URL, PUT_BLOG_URL } from '..
 import BlogsWrapper from './BlogsWrapper';
 import ProfileBody from './ProfileBody';
 
-// TODO: WRITE 2 ESSAYS
-// IMPLEMENT DARKMODE
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + BEARER;
+
 // DOWNLOAD THE BACKEND
 
 export class Wrapper extends Component {
@@ -20,7 +20,6 @@ export class Wrapper extends Component {
     }
 
     async componentDidMount() {
-        axios.defaults.headers.common['Authorization'] = 'Bearer ' + BEARER;
         await axios.get(BLOG_URL)
             .then((resp) => {
                 this.setState({ blogs: resp.data })
@@ -51,9 +50,9 @@ export class Wrapper extends Component {
     // WORKED
     modifyBlog(title, content, id) {
         axios.put(PUT_BLOG_URL, {
-            id: id,
             title: title,
             content: content,
+            id: id,
         })
             .then((resp) => {
                 console.log("SUCCESSFUL")
@@ -87,8 +86,8 @@ export class Wrapper extends Component {
 
     render() {
         let blogs = this.state.blogs || []
-
         return (
+
             <div id="wrapper">
                 <BlogsWrapper blogs={blogs} onLike={this.likeBlog} onEdit={this.modifyBlog} onAddBlog={this.createBlog} />
                 <ProfileBody />

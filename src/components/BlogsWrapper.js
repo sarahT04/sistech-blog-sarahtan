@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import AddNewBlog from './NewBlogForm'
+import NewBlogForm  from './NewBlogForm'
 import BlogsItem from './BlogsItem'
 
 function BlogsWrapper({ blogs, onLike, onEdit, onAddBlog }) {
@@ -8,7 +8,7 @@ function BlogsWrapper({ blogs, onLike, onEdit, onAddBlog }) {
   return (
     <div id='blog-wrapper'>
       <h1 style={{ marginBottom: '20px' }}>Create New Post</h1>
-      <AddNewBlog onAddBlog={onAddBlog} />
+      <NewBlogForm onAddBlog={onAddBlog} />
       <br /><br /><br /><br />
       {
         blogs.map((blog) => (

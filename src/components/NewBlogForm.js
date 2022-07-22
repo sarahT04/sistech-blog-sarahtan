@@ -12,7 +12,7 @@ function NewBlogForm({ onAddBlog, onEditBlog }) {
     return (
         <form className="new-blog" onSubmit={(event) => { formSubmit() }}>
             <input className="new-blog-title" placeholder='Title' type="text" minLength="3" maxLength="50" value={title} onChange={(event) => { setInputValue(event.target.value) }} /><br />
-            <textarea className="new-blog-content" placeholder='Content' type="text" minLength="5" maxLength="256" value={content} onChange={(event) => { setTextareaValue(event.target.value) }}></textarea><br />
+            <textarea className="new-blog-content" placeholder='Content' type="text" minLength="5" value={content} onChange={(event) => { setTextareaValue(event.target.value) }}></textarea><br />
             <button type='submit'>Submit</button>
         </form>
     )

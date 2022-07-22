@@ -1,19 +1,27 @@
 import React from 'react'
 import ProfileImg from './ProfileImg'
 import ProfileName from './ProfileName'
+import NewBlogForm from './NewBlogForm'
+import { MY_POSTS } from '../utils/constants'
 
 import anonymousPic from '../media/anonymous.png'
-import NewBlogForm from './NewBlogForm'
 
 function BlogsItem({ title, content, id, like, onLike, onEdit, setIsOnEdit, isOnEdit }) {
 
     return (
         <div className="blog-item" id={id}>
-            <div className='controls-wrapper'>
-                <ProfileImg img={anonymousPic} alt={"Anonymous user"} />
-                <ProfileName name={"Anonymous"} />
-                <button className="edit" onClick={() => { isOnEdit ? setIsOnEdit(null) : setIsOnEdit(id) }}><i style={{ fontSize: "15px" }} className="fa fa-solid fa-pencil"></i></button>
-            </div>
+            {MY_POSTS.includes(id) ?
+                <div className='controls-wrapper'>
+                    <ProfileImg />
+                    <ProfileName />
+                </div>
+                :
+                <div className='controls-wrapper'>
+                    <ProfileImg img={anonymousPic} />
+                    <ProfileName name="Anonymous" />
+                    <button className="edit disabled" onClick={() => { isOnEdit ? setIsOnEdit(null) : setIsOnEdit(id) }}><i style={{ fontSize: "15px" }} className="fa fa-solid fa-pencil"></i></button>
+                </div>
+            }
             {isOnEdit ?
                 <ContentEdit title={title} content={content} id={id} onEdit={onEdit} />
                 :
